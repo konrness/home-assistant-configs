@@ -1,0 +1,14 @@
+- alias: 'Car not charging'
+  trigger:
+    platform: time
+    at: '23:10:00'
+  condition:
+    condition: numeric_state
+    entity_id: sensor.ness_garage_amps
+    below: 1
+  action:
+    service: tts.google_say
+    entity_id: media_player.bedroom_speaker
+    data:
+      message: 'Warning: Sparky is not plugged in.'
+
